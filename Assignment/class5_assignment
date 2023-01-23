@@ -1,0 +1,70 @@
+What is the difference between Name Export,Default export
+and * as export ? 
+
+Named export - 
+
+we have to use curly braces while importing
+the named export
+
+some declarations- 
+export let name1,name2
+export const name1=1,nam2=2
+export class ClassName{}
+
+
+
+Default export - 
+
+while importing we don't need to use
+curly braces
+
+one module can have only one default export
+and mutiple named export
+
+when importing the named export must be 
+referred by exact same name
+but default export can be imported with any
+name
+
+some declartions-
+export default expression
+export default function functionName(){}
+
+
+Export * as -
+
+exports everything from that the module
+also known as aggregating modules
+
+some declartion- 
+export * from "module-name"
+export * as name1 from "module-name"
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+What is the importance of config.js file
+
+Config.js file is used to keep the constant
+things like image path, movies data
+
+to manage static global variable accross diff
+components 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+What are React Hooks
+
+React Hooks are nothing but a simple js fun
+provided by react example - useState and
+useEffect
+
+Hooks are functions that let you hook into
+React state and lifecycle features from 
+fun components
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Why do we need useState Hook
+
+We need useState Hook for making 
+local state variables which are in sync with UI 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+

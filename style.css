@@ -1,0 +1,274 @@
+.logo {
+  width: 100px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.navlist > ul {
+  list-style-type: none;
+  margin-top: 25px;
+}
+
+.navlist > ul > li {
+  display: inline;
+  margin: 20px;
+  font-size: 20px;
+}
+.navlist > ul > li > a {
+  border: 1px solid white;
+}
+.navlist > ul > li > a:hover {
+  color: orange;
+  border: 1px solid orange;
+}
+
+.shimmer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.shimmer_card {
+  width: 200px;
+  height: 300px;
+  background-color: rgb(216, 211, 211);
+  margin: 10px;
+  padding: 20px;
+}
+.shimmer_img_div {
+  width: 100%;
+  height: 110px;
+  background-color: rgb(233, 228, 228);
+}
+.shimmer_title_div {
+  margin-top: 10px;
+  width: 100%;
+  height: 20px;
+  border-radius: 5px;
+  background-color: rgb(209, 206, 206);
+}
+
+.restaurant-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search_container {
+  margin: 10px;
+  padding: 10px;
+}
+.search_container > input {
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.menu_div {
+  margin-top: 10px;
+  border: 1px solid black;
+  padding: 10px;
+  /* width: 100%; */
+}
+
+.menu_card {
+  display: flex;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: #171a29;
+}
+.menu_card > div {
+  margin-right: 50px;
+  padding: 10px;
+}
+.menu_card > div > img {
+  margin-top: 15px;
+}
+
+.menu_title_div {
+  color: white;
+}
+.menu_title_div > h4 {
+  color: rgb(183, 183, 183);
+}
+.menu_title_div > div > h4 {
+  margin-left: 10px;
+}
+
+.menu_shimmer {
+  /* width:  98%; */
+  background-color: rgb(216, 211, 211);
+  height: 200px;
+  display: flex;
+  padding: 20px;
+}
+.menu_shimmer > div {
+  background-color: rgb(179, 178, 178);
+}
+.menu_shimmer_img_div {
+  width: 300px;
+  margin-left: 5%;
+  margin-top: 10px;
+  background-color: rgb(233, 228, 228);
+}
+.menu_shimmer_title_div {
+  width: 60%;
+  padding: 10px;
+  padding-top: 30px;
+  margin-left: 50px;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+.menu_shimmer_title_div > div {
+  background-color: rgb(209, 206, 206);
+  height: 40px;
+  margin-top: 5px;
+}
+
+.search_input {
+  /* margin-left: 30%; */
+  width: 20%;
+}
+.search_btn {
+  padding: 5px;
+  margin-left: 10px;
+  background-color: white;
+  border: 1px solid black;
+  outline: none;
+}
+.search_btn:hover {
+  color: orange;
+  border: 1px solid orange;
+}
+.card {
+  border: 1px solid black;
+  width: 200px;
+  height: 300px;
+  padding: 20px;
+  margin: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  position: relative;
+}
+.card > img {
+  width: 100%;
+}
+
+.card > h5 {
+  line-height: 1em;
+  height: 2em;
+  overflow: hidden;
+  /* white-space: nowrap; */
+  /* text-overflow: ellipsis; */
+  /* border: 1px solid black; */
+}
+.card > div {
+  position: absolute;
+  bottom: 1px;
+  /* border: 1px solid black; */
+}
+
+.card > div > h6 {
+  margin-left: 10px;
+}
+
+.menu_items_card {
+  width: 600px;
+  height: 250px;
+  /* border: 1px solid black; */
+  border-bottom: 1px solid gray;
+  border-radius: 5px;
+  display: flex;
+}
+.menu_items_card > div {
+  /* border: 1px solid black;   */
+  padding: 5px;
+}
+.menu_items_card > div > img {
+  width: 200px;
+}
+.menu_items_card > div > div {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+}
+.menu_items_card > div > div > button {
+  padding: 5px 10px;
+  background-color: white;
+  font-size: 20px;
+  margin: 5px;
+  border: 1px solid grey;
+  cursor: pointer;
+  /* border: 1px solid black; */
+}
+.menu_items_card > div > p {
+  color: gray;
+}
+.menu_items_card > div > div > span {
+  /* border: 1px solid gray; */
+  border-left: none;
+  border-right: none;
+  padding: 7px 10px;
+}
+.menu_item_container {
+  display: flex;
+  /* border: 1px solid black; */
+  justify-content: center;
+  padding: 10px;
+}
+
+form {
+  padding: 30px;
+  margin-top: 100px;
+  border: 2px solid orange;
+  border-radius: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  display: block;
+  width: 400px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 2px solid orange;
+  border-radius: 4px;
+  /* margin-bottom: 20px; */
+}
+
+form-control {
+  margin-bottom: 20px;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+  display: flex;
+  margin-bottom: 5px;
+}
+form > button {
+  padding: 5px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: rgb(109, 107, 107);
+  background-color: white;
+  border: 1px solid gray;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.error {
+  color: red;
+}
