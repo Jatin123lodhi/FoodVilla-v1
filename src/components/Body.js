@@ -3,38 +3,19 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
-function filterData(searchText, restaurants) {
-  const filterData = restaurants.filter((restaurant) =>
-    restaurant?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase())
-  );
-
-  return filterData;
-}
-
+import { filterData } from "../utils/helper";
+import useRestaurant from "./useRestaurant";
+import useIsOnline from "../utils/useIsOnline"; 
 const Body = () => {
-  const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
-
-  useEffect(() => {
-    getRestaurants();
-  }, []);
-
-  async function getRestaurants() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.1522426&lng=79.92067159999999&page_type=DESKTOP_WEB_LISTING"
-    );
-    console.log(data, "   data inside getRestaurant");
-    const json = await data.json();
-    setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+  
+  const allRestaurants = useRestaurant(setFilteredRestaurants);
+  const isOnline = useIsOnline();
+  if(!isOnline){
+    return <h1>No internet, please check your connection</h1>
   }
-
-  // not render component (Early return)
-  if (!allRestaurants) return null;
-
-  return allRestaurants?.length === 0 ? (
+  return  !allRestaurants ? (
     <Shimmer />
   ) : (
     <>
@@ -63,7 +44,6 @@ const Body = () => {
         </div>
       </div>
       <div className="restaurant-list">
-        {/* You have to write logic for NO restraunt fount here */}
         {filteredRestaurants.map((restaurant) => {
           return (
             <Link

@@ -1,48 +1,14 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { CND_IMG_URL, RESTAURANT_MENU_URL } from "../constant";
+import { CND_IMG_URL } from "../constant";
 import MenuShimmer from "./MenuShimmer";
-
-const ItemsCard = ({ name, price, description, cloudinaryImageId }) => {
-  return (
-    <div className="menu_item_container">
-      <div className="menu_items_card">
-        <div style={{ width: "400px"  }}>
-          <h4>{name}</h4>
-          <h5>₹276.19 </h5>
-          <p>{description}</p>
-        </div>
-        <div style={{ position: "relative"}}>
-          <img src={CND_IMG_URL + cloudinaryImageId} alt="food image"/>
-          <div style={{ position: "absolute", left: "50px", bottom: "10px" }}>
-            <button >-</button>
-            <span>0</span>
-            <button>+</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+import useRestaurantMenu from "../utils/useRestaurantMenu";
+import ItemsCard from "./ItemsCard";
 
 const RestaurantMenu = () => {
   const param = useParams();
   const { resId } = param;
-  const [restaurant, setRestaurant] = useState(null);
-
-  useEffect(() => {
-    //API call
-    getRestaurants();
-  }, []);
-
-  async function getRestaurants() {
-    // console.log(RESTAURANT_MENU_URL + restaurantId)
-    const data = await fetch(RESTAURANT_MENU_URL + resId);
-    const json = await data.json();
-    setRestaurant(json.data);
-    //console.log(json);
-  }
-  //
+  const  restaurant  = useRestaurantMenu(resId);
+  
   return !restaurant ? (
     <MenuShimmer />
   ) : (
@@ -79,13 +45,9 @@ const RestaurantMenu = () => {
 
       <div className="menu_div">
         <h1 style={{ textAlign:"center" }}>Menu</h1>
-        {/* {console.log(restaurant)} */}
         <ul>
           {Object.values(restaurant.menu.items).map((item) => {
             return <ItemsCard key={item.name} {...item} />;
-            {
-              /* return <li key={item.name}>{item.name}</li>; */
-            }
           })}
         </ul>
       </div>

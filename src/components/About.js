@@ -8,25 +8,25 @@ class About extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log("parent constructor");
+    // console.log("parent constructor");
   }
 
   componentDidMount() {
-    console.log("parenent compoenetDidMount");
+    // console.log("parenent compoenetDidMount");
     // this.timer = setInterval(()=>{console.log('Namaste React')},1000);
   }
 
   componentDidUpdate(prevProps, prevState) {
     
-    console.log("parent componentDidUpdate");
+    // console.log("parent componentDidUpdate");
   }
 
   componentWillUnmount() {
-    console.log("parent componentWillUnmount");
+    // console.log("parent componentWillUnmount");
     // clearInterval(this.timer)
   }
   render() {
-    console.log("parent render");
+    //console.log("parent render");
     return (
       <>
         <h1>About Us page class component</h1>

@@ -12,6 +12,7 @@ a {
   border: 1px solid black;
   margin: 10px;
   border-radius: 5px;
+  padding: 2px;
 }
 
 .navlist > ul {
