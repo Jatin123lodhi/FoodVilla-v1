@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
@@ -12,16 +12,35 @@ import RestaurantMenu from "/src/components/RestaurantMenu";
 import LoginForm from "./src/components/LoginForm";
 import Profile from "./src/components/Profile.js";
 import Shimmer from "./src/components/Shimmer.js";
+import UserContext from "./src/utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./src/utils/store";
+import NewCart from "./src/components/NewCart"; 
+
 // import InstaMart from "./src/components/InstaMart";
 //Config driven UI
 let InstaMart = lazy(() => import("./src/components/InstaMart"));
-let About = lazy(()=> import("./src/components/About"));
+let About = lazy(() => import("./src/components/About"));
+
 const AppLayout = () => {
+  const [user, setUser] = useState({
+    name: "Jatin Lodhi",
+    email: "jatin@gmail.com",
+  });
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      <Provider store={store}>
+        <UserContext.Provider
+          value={{
+            user: user,
+            setUser: setUser,
+          }}
+        >
+          <Header />
+          <Outlet />
+          <Footer />
+        </UserContext.Provider>
+      </Provider>
     </>
   );
 };
@@ -35,7 +54,12 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/about",
-        element: <Suspense fallback={<h1>Loading Please wait ...</h1>}><About /></Suspense>,
+        element: (
+          <Suspense fallback={<h1>Loading Please wait ...</h1>}>
+            <About />
+          </Suspense>
+        ),
+        // element: <About />,
         children: [
           {
             path: "profile",
@@ -62,11 +86,16 @@ const appRouter = createBrowserRouter([
       {
         path: "/insta-mart",
         element: (
-          <Suspense fallback={<Shimmer/>}>
+          <Suspense fallback={<Shimmer />}>
             <InstaMart />
           </Suspense>
         ),
       },
+      {
+        path: "/NewCart",
+        element: <NewCart />,
+      },
+      
     ],
   },
 ]);

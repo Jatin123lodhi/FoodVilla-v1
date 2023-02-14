@@ -1,8 +1,8 @@
- 
 import React from "react";
 import { Outlet } from "react-router-dom";
 import ProfileFunComp from "./Profile";
 import Profile from "./ProfileClass";
+import UserContext from "../utils/UserContext";
 
 class About extends React.Component {
   constructor(props) {
@@ -17,7 +17,6 @@ class About extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    
     // console.log("parent componentDidUpdate");
   }
 
@@ -31,8 +30,16 @@ class About extends React.Component {
       <>
         <h1>About Us page class component</h1>
         <p>This is about us page, you can know about us </p>
-        <h1>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h1>
-        <ProfileFunComp name="Akshaya Class" />
+        <UserContext.Consumer>
+          {({ user }) => (
+            <h4>
+              {user.name}-{user.email}
+            </h4>
+          )}
+        </UserContext.Consumer>
+
+        {/* <h1>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h1>
+        <ProfileFunComp name="Akshaya Class" /> */}
       </>
     );
   }
